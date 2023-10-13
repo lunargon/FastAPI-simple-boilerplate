@@ -1,11 +1,13 @@
-from functools import cached_property
 import os
+from functools import cached_property
 from pathlib import Path
 from typing import Literal
+
 from pydantic import AnyHttpUrl, EmailStr, PostgresDsn, computed_field
 from pydantic_settings import BaseSettings
 
 PROJECT_DIR = Path(__file__).parent.parent.parent
+
 
 class Settings(BaseSettings):
     # CORE SETTINGS
@@ -22,55 +24,20 @@ class Settings(BaseSettings):
     VERSION: str = os.getenv("VERSION")
     DESCRIPTION: str = os.getenv("DESCRIPTION")
 
-    # POSTGRESQL DEFAULT DATABASE
-    # DEFAULT_DATABASE_HOSTNAME: str
-    # DEFAULT_DATABASE_USER: str
-    # DEFAULT_DATABASE_PASSWORD: str
-    # DEFAULT_DATABASE_PORT: int
-    # DEFAULT_DATABASE_DB: str
+    # SQL DATABASE
+    SQL_DATABASE: str = os.getenv("SQL_DATABASE")
 
-    # POSTGRESQL TEST DATABASE
-    TEST_DATABASE_HOSTNAME: str = "postgres"
-    TEST_DATABASE_USER: str = "postgres"
-    TEST_DATABASE_PASSWORD: str = "postgres"
-    TEST_DATABASE_PORT: int = 5432
-    TEST_DATABASE_DB: str = "postgres"
+    # Mongo DATABASE
+    MONGO_DATABASE: str = os.getenv("MONGO_DATABASE")
+
+    # TEST_DATABASE_USER: str = "postgres"
+    # TEST_DATABASE_PASSWORD: str = "postgres"
+    # TEST_DATABASE_PORT: int = 5432
+    # TEST_DATABASE_DB: str = "postgres"
 
     # FIRST SUPERUSER
     # FIRST_SUPERUSER_EMAIL: EmailStr
     # FIRST_SUPERUSER_PASSWORD: str
-
-    # @computed_field
-    # @cached_property
-    # def DEFAULT_SQLALCHEMY_DATABASE_URI(self) -> str:
-    #     return str(
-    #         PostgresDsn.build(
-    #             scheme="postgresql+asyncpg",
-    #             username=self.DEFAULT_DATABASE_USER,
-    #             password=self.DEFAULT_DATABASE_PASSWORD,
-    #             host=self.DEFAULT_DATABASE_HOSTNAME,
-    #             port=self.DEFAULT_DATABASE_PORT,
-    #             path=self.DEFAULT_DATABASE_DB,
-    #         )
-    #     )
-
-    # @computed_field
-    # @cached_property
-    # def TEST_SQLALCHEMY_DATABASE_URI(self) -> str:
-    #     return str(
-    #         PostgresDsn.build(
-    #             scheme="postgresql+asyncpg",
-    #             username=self.TEST_DATABASE_USER,
-    #             password=self.TEST_DATABASE_PASSWORD,
-    #             host=self.TEST_DATABASE_HOSTNAME,
-    #             port=self.TEST_DATABASE_PORT,
-    #             path=self.TEST_DATABASE_DB,
-    #         )
-    #     )
-
-    # model_config = SettingsConfigDict(
-    #     env_file=f"{PROJECT_DIR}/.env", case_sensitive=True
-    # )
 
 
 settings: Settings = Settings()  # type: ignore
