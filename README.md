@@ -5,7 +5,34 @@ First version still not have connect to db -- Coming soon
 ```
 
 ## Structure of this project:
-(Coming soon)
+{template} 
+├── app
+│   ├── config
+│   │   ├── _init__.py
+│   │   └── config.py
+│   ├── db
+│   │   └── __init__.py
+│   ├── models
+│   │   └── _init_.py
+│   ├── routes
+│   │   ├── __init__.py
+│   │   ├── include
+│   │   │   ├── __init__.py
+│   │   │   └── healthcheck.py
+│   │   └── routes.py
+│   ├── services
+│   │   └── __init__.py
+│   ├── test
+│   │   ├── __init__.py
+│   │   └── test.py
+│   └── utils
+│   │   └── util.py
+│   ├── main.py
+├── Docker-compose.yml
+├── Dockerfile
+├── README.md
+├── requirements.txt
+└── run.py
 
 ## Flow of this project:
 This flow will run:
