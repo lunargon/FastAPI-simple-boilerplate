@@ -3,8 +3,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 
-from app.routes import api_router
 from app.config import config
+from app.routes import api_router
 
 app = FastAPI(
     title=config.settings.PROJECT_NAME,
