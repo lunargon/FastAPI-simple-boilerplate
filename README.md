@@ -1,7 +1,7 @@
-# FASTAPI TEMPLATE
+# FastAPI Template
 
 ```
-First version still not have connect to db -- Coming soon
+This template has connect to sql and mongo database(s)
 ```
 
 ## Structure of this project:
