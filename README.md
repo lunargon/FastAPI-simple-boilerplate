@@ -13,7 +13,7 @@ First version still not have connect to db -- Coming soon
 │   ├── db\
 │   │   └── __init__.py\
 │   ├── models\
-│   │   └── _init_.py\
+│   │   └── __init__.py\
 │   ├── routes\
 │   │   ├── __init__.py\
 │   │   ├── include\
@@ -26,6 +26,7 @@ First version still not have connect to db -- Coming soon
 │   │   ├── __init__.py\
 │   │   └── test.py\
 │   └── utils\
+|   |   |── __init__.py
 │   │   └── util.py\
 │   ├── main.py\
 ├── Docker-compose.yml\
