@@ -26,7 +26,7 @@ This template has connect to sql and mongo database(s)
 │   │   ├── __init__.py\
 │   │   └── test.py\
 │   └── utils\
-|   |   |── __init__.py
+|   |   |── __init__.py\
 │   │   └── util.py\
 │   ├── main.py\
 ├── Docker-compose.yml\
