@@ -1,39 +1,40 @@
 # FastAPI Template
 
-```
-This template has connect to sql and mongo database(s)
-```
+This template has connect to SQL and mongo database(s)
+
 
 ## Structure of this project:
-{template} \
-├── app\
-│   ├── config\
-│   │   ├── _init__.py\
-│   │   └── config.py\
-│   ├── db\
-│   │   └── __init__.py\
-│   ├── models\
-│   │   └── __init__.py\
-│   ├── routes\
-│   │   ├── __init__.py\
-│   │   ├── include\
-│   │   │   ├── __init__.py\
-│   │   │   └── healthcheck.py\
-│   │   └── routes.py\
-│   ├── services\
-│   │   └── __init__.py\
-│   ├── test\
-│   │   ├── __init__.py\
-│   │   └── test.py\
-│   └── utils\
-|   |   |── __init__.py\
-│   │   └── util.py\
-│   ├── main.py\
-├── Docker-compose.yml\
-├── Dockerfile\
-├── README.md\
-├── requirements.txt\
+```
+{template} 
+├── src
+│   ├── config
+│   │   ├── _init__.py
+│   │   └── config.py
+│   ├── db
+│   │   └── __init__.py
+│   ├── models
+│   │   └── __init__.py
+│   ├── routes
+│   │   ├── __init__.py
+│   │   ├── include
+│   │   │   ├── __init__.py
+│   │   │   └── healthcheck.py
+│   │   └── routes.py
+│   ├── services
+│   │   └── __init__.py
+│   ├── test
+│   │   ├── __init__.py
+│   │   └── test.py
+│   └── utils
+|   |   |── __init__.py
+│   │   └── util.py
+│   ├── main.py
+├── Docker-compose.yml
+├── Dockerfile
+├── README.md
+├── requirements.txt
 └── run.py
+```
 
 ## Flow of this project:
 This flow will run:
@@ -71,6 +72,11 @@ Install packages:
 ```
 pip install -r requirements.txt
 ``` 
+
+Create .env file:
+```
+cp .env.example .env
+```
 
 Run this project:
 ```
