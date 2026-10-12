@@ -1,0 +1,12 @@
+.git
+__pycache__/
+*.py[cod]
+.venv/
+.uv/
+uv.lock
+.env
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage*

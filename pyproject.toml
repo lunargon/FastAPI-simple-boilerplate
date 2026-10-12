@@ -1,0 +1,81 @@
+[project]
+name = "fastapi-simple-boilerplate"
+version = "0.1.0"
+description = "Minimal FastAPI boilerplate with SQL + Mongo support, managed by uv"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "ntluan" }]
+dependencies = [
+    "fastapi>=0.116",
+    "uvicorn[standard]>=0.34",
+    "sqlalchemy>=2.0",
+    "pydantic>=2.11",
+    "pydantic-settings>=2.5",
+    "python-dotenv>=1.0",
+    "pymongo>=4.10",
+    "python-jose[cryptography]>=3.3",
+    "passlib[bcrypt]>=1.7.4",
+    "email-validator>=2.0",
+    "python-slugify>=8.0",
+    "loguru>=0.7",
+]
+
+[project.optional-dependencies]
+# e.g. async pg driver: `uv sync --extra pg`
+pg = ["asyncpg>=0.29", "psycopg[binary]>=3.1"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=5.0",
+    "httpx>=0.28",
+    "ruff>=0.9",
+    "mypy>=1.14",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/app"]
+
+# ---- uv ----
+[tool.uv]
+package = true
+
+# ---- pytest ----
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+addopts = "-ra --cov=app --cov-report=term-missing"
+
+[tool.coverage.run]
+source = ["app"]
+branch = true
+
+# ---- ruff ----
+[tool.ruff]
+target-version = "py311"
+src = ["src"]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "W", "C90", "PL"]
+ignore = ["PLR0913", "E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+# ---- mypy ----
+[tool.mypy]
+python_version = "3.11"
+packages = ["app"]
+ignore_missing_imports = true
+strict = false
+show_error_codes = true
+warn_unused_ignores = true
+mypy_path = "src"
